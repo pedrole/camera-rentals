@@ -1,4 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Welcome to Camera Rentals</h1>
+    <p>Book highted rated for making your own movies</p>
+    <%= link_to "Book now", "#", class: "btn btn-flat" %>
+  </div>
+</div>
 
-<%= link_to 'Cameras', cameras_path, class: 'btn btn-primary' %>
+
+
+<div class="container">
+  <h2 class="text-center my-3">highlighted Products</h2>
+  <div class="row">
+    <% @cameras.each do |camera| %>
+      <div class="col-md-4">
+        <div class="card">
+          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title text-primary"><%= camera.name %></h5>
+            <p class="card-text"><%= camera.optical_zoom %></p>
+            <p class="card-text"><%= camera.price_per_day %></p>
+            <%= link_to 'Show', cameras_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
