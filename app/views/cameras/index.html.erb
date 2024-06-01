@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Cameras</h1>
+  <ul>
+    <% @cameras.each do |camera| %>
+      <li><%= camera.name %></li>
+    <% end %>
+  </ul>
+  <%= link_to "New Camera", new_camera_path %>
+</div>

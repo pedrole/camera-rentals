@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New Camera</h1>
+  <p>Find me in app/views/cameras/new.html.erb</p>
+  <br>
+  <%= simple_form_for(@camera) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :optical_zoom %>
+    <%= f.input :price_per_day %>
+    <%= f.input :address %>
+    <%= f.input :resolution %>
+    <%= f.submit class: 'btn btn-primary'  %>
+  <% end %>
+</div>
