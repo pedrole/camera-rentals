@@ -1,7 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1551728715-941acefa8a3d?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
   <div class="container">
     <h1>Welcome to Camera Rentals</h1>
-    <p>Book highted rated for making your own movies</p>
+    <p>Book highted rated camera for making your own movies</p>
     <%= link_to "Book now", "#", class: "btn btn-flat" %>
   </div>
 </div>
@@ -9,17 +9,17 @@
 
 
 <div class="container">
-  <h2 class="text-center my-3">highlighted Products</h2>
+  <h2 class="text-center my-5">highlighted Products</h2>
   <div class="row">
     <% @cameras.each do |camera| %>
       <div class="col-md-4">
-        <div class="card">
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg", class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title text-primary"><%= camera.name %></h5>
-            <p class="card-text"><%= camera.optical_zoom %></p>
-            <p class="card-text"><%= camera.price_per_day %></p>
-            <%= link_to 'Show', cameras_path, class: 'btn btn-primary' %>
+        <div class="card-camera" role="button">
+          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd" />
+          <div class="card-camera-infos">
+            <div>
+              <h2><%= camera.name %></h2>
+            </div>
+            <h2 class="card-camera-pricing">€<%= camera.price_per_day %></h2>
           </div>
         </div>
       </div>
