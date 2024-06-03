@@ -1,9 +1,11 @@
-<div class="container">
-  <h1>Cameras</h1>
-  <ul>
+<div class="container mt-5">
+  <h1>All our Cameras</h1>
+  <p>All <%= @cameras.size %> cameras</p>
+  <div class="row">
     <% @cameras.each do |camera| %>
-      <li><%= camera.name %></li>
+      <div class="col-md-4">
+        <%= render "shared/card_camera", camera: camera %>
+      </div>
     <% end %>
-  </ul>
-  <%= link_to "New Camera", new_camera_path %>
+  </div>
 </div>
