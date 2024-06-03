@@ -2,7 +2,11 @@
   <h1>Cameras</h1>
   <ul>
     <% @cameras.each do |camera| %>
-      <li><%= camera.name %></li>
+      <li>
+        <%= camera.name %>
+        <%= link_to 'Edit', edit_camera_path(camera) %>
+        <%= link_to 'Destroy', camera_path(camera), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
     <% end %>
   </ul>
   <%= link_to "New Camera", new_camera_path %>
