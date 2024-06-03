@@ -1,7 +1,15 @@
 class CamerasController < ApplicationController
 
   def index
-    @cameras = Camera.all
+
+    if params[:query].present?
+      @query = params[:query]
+      @cameras = Camera.where("name LIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @cameras = Camera.all
+    end
   end
 
   def new
