@@ -40,12 +40,14 @@
           <%= f.input :start_date, as: :string,  input_html: { data: { datepicker_target: "startDate", action: "input->total#calculateTotal" } }  %>
 
           <%= f.input :end_date, as: :string,  input_html: { data: { datepicker_target: "endDate", action: "input->total#calculateTotal"  }, id: 'end_time'} %>
+
           <%= f.button :submit,  class: "btn btn-primary" %>
 
         <% end %>
         <div class="d-flex justify-content-between border-top border-2 mt-4 pt-3">
               <div class="fw-semibold">Total</div>
-              <div class="fw-semibold" data-total-target="total"   data-total-camera-value="<%= @camera.to_json %>" data-total-reservation-value="<%= @reservation.to_json %>"></div>
+
+              <div class="fw-semibold" data-total-target="total"   ></div>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export default class extends Controller {
 
   calculateTotal(event) {
 
-    this.totalTarget.textContent = total;
+
     let dates = event.target.value.split('to');
     let start_date =  Date.parse(dates[0]);
     let end_date =  Date.parse(dates[1]);
