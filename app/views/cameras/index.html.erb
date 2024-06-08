@@ -3,11 +3,12 @@
   <p>All <%= @cameras.size %> cameras</p>
   <div class="row gy-4">
     <% @cameras.each do |camera| %>
-    <%= link_to camera_path(camera) do %>
       <div class="col-md-4">
-        <%= render "shared/card_camera", camera: camera %>
+        <%= link_to camera_path(camera), class:"text-decoration-none" do %>
+          <%= render "shared/card_camera", camera: camera %>
+        <% end %>
       </div>
     <% end %>
-    <% end %>
+
   </div>
 </div>
