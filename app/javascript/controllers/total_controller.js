@@ -2,22 +2,27 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total"
 export default class extends Controller {
-  static values = { camera: Object, reservation: Object}
+  static values = { pricePerDay: Number}
   static targets = ["total", ]
 
   initialize() {
     //this.calculateTotal();
   }
 
-  calculateTotal() {
-    // Your logic to calculate the total based on the camera value
-   // console.log(this.cameraValue);
-   // console.log(this.reservationValue);
-   console.log(event.target.value);
+  calculateTotal(event) {
 
-    const total = 23/* your calculation here */
     this.totalTarget.textContent = total;
-    Date.parse('20')
+    let dates = event.target.value.split('to');
+    let start_date =  Date.parse(dates[0]);
+    let end_date =  Date.parse(dates[1]);
+    let diff = end_date - start_date;
+    let days = diff / (1000 * 60 * 60 * 24);
+    if (days > 1) {
+      this.totalTarget.textContent = '€ '  +days * this.pricePerDayValue;
+    }
+    else {
+      this.totalTarget.textContent = '€ 0';
+    }
   }
   connect() {
 

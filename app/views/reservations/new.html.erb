@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="bg-white rounded shadow p-3" data-controller="total" data-total-camera-value="<%= @camera.to_json %>" data-total-reservation-value="<%= @reservation.to_json %>">
+      <div class="bg-white rounded shadow p-3" data-controller="total" data-total-price-per-day-value="<%= @camera.price_per_day %>">
         <div class="d-flex mb-3 align-items-center">
           <span class="mr-3 fw-medium fs-4 ">€ <%= @camera.price_per_day %>&nbsp;</span>
           <span>  day</span>
@@ -45,7 +45,7 @@
         <% end %>
         <div class="d-flex justify-content-between border-top border-2 mt-4 pt-3">
               <div class="fw-semibold">Total</div>
-              <div class="fw-semibold" data-total-target="total"   data-total-camera-value="<%= @camera.to_json %>" data-total-reservation-value="<%= @reservation.to_json %>">€ 3200</div>
+              <div class="fw-semibold" data-total-target="total"   data-total-camera-value="<%= @camera.to_json %>" data-total-reservation-value="<%= @reservation.to_json %>"></div>
         </div>
       </div>
     </div>
