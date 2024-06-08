@@ -1,7 +1,15 @@
 class CamerasController < ApplicationController
-
+  before_action :set_camera, only: [:show]
   def index
-    @cameras = Camera.all
+
+    if params[:query].present?
+      @query = params[:query]
+      @cameras = Camera.where("name LIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @cameras = Camera.all
+    end
   end
 
   def new
@@ -18,6 +26,7 @@ class CamerasController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
 
   def edit
     @camera = Camera.find(params[:id])
@@ -39,8 +48,17 @@ class CamerasController < ApplicationController
     redirect_to cameras_path, notice: "Camera deleted!"
   end
 
+  def show 
+    @camera 
+  end
+  
+
   private
 
+  def set_camera
+    @camera = Camera.find(params[:id])
+  end
+  
   def camera_params
     params.require(:camera).permit(:name, :optical_zoom, :address, :year, :resolution, :price_per_day)
   end

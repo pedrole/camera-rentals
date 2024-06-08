@@ -1,13 +1,18 @@
-<div class="container">
-  <h1>Cameras</h1>
-  <ul>
+<div class="container mt-5">
+  <h1>All our Cameras</h1>
+  <p>All <%= @cameras.size %> cameras</p>
+  <div class="row gy-4">
     <% @cameras.each do |camera| %>
-      <li>
-        <%= camera.name %>
-        <%= link_to 'Edit', edit_camera_path(camera) %>
+
+      <div class="col-md-4">
+        <%= link_to camera_path(camera), class:"text-decoration-none" do %>
+          <%= render "shared/card_camera", camera: camera %>
+          <%= link_to 'Edit', edit_camera_path(camera) %>
         <%= link_to 'Destroy', camera_path(camera), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
+        <% end %>
+      </div>
+
     <% end %>
-  </ul>
-  <%= link_to "New Camera", new_camera_path %>
+
+  </div>
 </div>

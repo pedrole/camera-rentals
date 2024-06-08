@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'reservations/new'
   get 'cameras/index'
   get 'cameras/new'
   get 'cameras/create'
+  get 'cameras/show'
+
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,7 +13,14 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+
   resources :cameras, only: [:index, :new, :create, :edit, :update, :destroy]
+
+
+  resources :cameras, only: %i[index new create show edit update destroy] do
+    resources :reservations, only: [:new, :create]
+  end
+
 
   # Defines the root path route ("/")
   # root "posts#index"

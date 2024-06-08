@@ -1,0 +1,12 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to camera.name, camera_path(camera) %></h5>
+    <p class="card-text">
+      <strong>Optical Zoom:</strong> <%= camera.optical_zoom %><br>
+      <strong>Address:</strong> <%= camera.address %><br>
+      <strong>Year:</strong> <%= camera.year %><br>
+      <strong>Resolution:</strong> <%= camera.resolution %><br>
+      <strong>Price per day:</strong> <%= camera.price_per_day %>
+    </p>
+  </div>
+</div>
