@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-4 mx-auto">
+    <h1><%= @camera.name %></h1>
+
+    <p>
+      <strong>Optical Zoom:</strong>
+      <%= @camera.optical_zoom %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @camera.address %>
+    </p>
+
+    <p>
+      <strong>Resolution:</strong>
+      <%= @camera.resolution %>
+    </p>
+
+    <p>
+      <strong>Price per day:</strong>
+      <%= @camera.price_per_day %>
+    </p>
+
+    <%= link_to 'Back to list', cameras_path %>
+  </div>
+</div>
+
