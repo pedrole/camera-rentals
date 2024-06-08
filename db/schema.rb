@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_184843) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_171859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_184843) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_cameras_on_name", unique: true
     t.index ["user_id"], name: "index_cameras_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.decimal "total_price"
+    t.bigint "user_id", null: false
+    t.bigint "camera_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["camera_id"], name: "index_reservations_on_camera_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +54,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_184843) do
   end
 
   add_foreign_key "cameras", "users"
+  add_foreign_key "reservations", "cameras"
+  add_foreign_key "reservations", "users"
 end

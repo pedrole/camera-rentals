@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/new'
   get 'cameras/index'
   get 'cameras/new'
   get 'cameras/create'
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :cameras, only: [:index, :new, :create]
+  resources :cameras, only: %i[index new create] do
+    resources :reservations, only: %i[new create]
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"
