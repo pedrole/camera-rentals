@@ -1,5 +1,5 @@
 class CamerasController < ApplicationController
-
+  before_action :set_camera, only: [:show]
   def index
 
     if params[:query].present?
@@ -27,8 +27,16 @@ class CamerasController < ApplicationController
     end
   end
 
+  def show 
+    @camera 
+  end
+  
   private
 
+  def set_camera
+    @camera = Camera.find(params[:id])
+  end
+  
   def camera_params
     params.require(:camera).permit(:name, :optical_zoom, :address, :year, :resolution, :price_per_day)
   end
