@@ -27,10 +27,32 @@ class CamerasController < ApplicationController
     end
   end
 
+
+  def edit
+    @camera = Camera.find(params[:id])
+  end
+
+  def update
+    @camera = Camera.find(params[:id])
+
+    if @camera.update(camera_params)
+      redirect_to cameras_path, notice: "Camera updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @camera = Camera.find(params[:id])
+    @camera = Camera.destroy
+    redirect_to cameras_path, notice: "Camera deleted!"
+  end
+
   def show 
     @camera 
   end
   
+
   private
 
   def set_camera

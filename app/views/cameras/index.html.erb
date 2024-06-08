@@ -3,11 +3,15 @@
   <p>All <%= @cameras.size %> cameras</p>
   <div class="row gy-4">
     <% @cameras.each do |camera| %>
+
       <div class="col-md-4">
         <%= link_to camera_path(camera), class:"text-decoration-none" do %>
           <%= render "shared/card_camera", camera: camera %>
+          <%= link_to 'Edit', edit_camera_path(camera) %>
+        <%= link_to 'Destroy', camera_path(camera), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
+
     <% end %>
 
   </div>
