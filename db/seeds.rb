@@ -31,3 +31,4 @@ end
                  resolution: Faker::Number.decimal(l_digits: 2),
                  user_id: User.all.sample.id)
 end
+
