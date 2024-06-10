@@ -2,7 +2,8 @@ class ReservationsController < ApplicationController
   before_action :set_camera, only: %i[new create]
   def new
     @reservation = Reservation.new
-
+    @markers = []
+    set_marker
   end
 
   def create
@@ -30,4 +31,16 @@ class ReservationsController < ApplicationController
     params.require(:reservation).permit(:start_date, :end_date)
   end
 
+  def set_marker
+    coordinates = @camera.geocode
+    return if coordinates.nil? || coordinates.empty?
+
+    @markers.push(
+      {
+        lat: coordinates[0],
+        lng: coordinates[1],
+        info_window_html: render_to_string(partial: "cameras/info_window", locals: { camera: @camera })
+      }
+    )
+  end
 end

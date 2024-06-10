@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>CameraRentals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,12 +12,13 @@
 
   </head>
 
-  <body>
-    <div class="main-container">
+  <body class="d-flex flex-column h-100">
+    <%# <div class="main-container"> %>
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
-      <%= yield %>
-      <%= render "shared/footer" %>
-    </div>
+      <%= yield  %>
+      <%=  render "shared/footer" %>
+
+    <%# </div> %>
   </body>
 </html>
