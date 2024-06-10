@@ -13,7 +13,9 @@
   <div class="row">
     <% @cameras.each do |camera| %>
       <div class="col-md-4">
-        <%= render "shared/card_camera", camera: camera %>
+        <%= link_to camera_path(camera), class:"text-decoration-none" do %>
+          <%= render "shared/card_camera", camera: camera %>
+        <% end %>
       </div>
     <% end %>
   </div>
