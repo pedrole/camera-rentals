@@ -11,11 +11,15 @@ class ReservationsController < ApplicationController
     @reservation.camera = @camera
     @reservation.user = current_user
     if @reservation.save
-      redirect_to cameras_path, notice: 'Reservation was successfully created.'
+      redirect_to @reservation, notice: 'Reservation was successfully created.'
     else
       render :new, status: :unprocessable_entity, alert: 'Something went wrong'
     end
   end
+  
+  def show
+    @reservation = Reservation.find(params[:id])
+  end  
 
   private
 
