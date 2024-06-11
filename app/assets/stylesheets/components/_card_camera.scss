@@ -1,6 +1,7 @@
 .card-camera {
   overflow: hidden;
   background: white;
+
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -26,8 +27,9 @@
 .card-camera .card-camera-infos {
   padding: 16px;
   display: flex;
+  height: 100px;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
 }
 
