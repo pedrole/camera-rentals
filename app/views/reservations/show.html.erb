@@ -1,28 +1,38 @@
-<h1>Reservation Details</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h1 class="mb-3">Reservation Details</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @reservation.user.first_name %> <%= @reservation.user.last_name %>
-</p>
+      <p>
+        <strong>User:</strong>
+        <%= @reservation.user.first_name %> <%= @reservation.user.last_name %>
+      </p>
 
-<p>
-  <strong>Camera:</strong>
-  <%= @reservation.camera.name %>
-</p>
+      <p>
+        <strong>Camera:</strong>
+        <%= @reservation.camera.name %>
+      </p>
 
-<p>
-  <strong>Start Date:</strong>
-  <%= @reservation.start_date %>
-</p>
+      <p>
+        <strong>Start Date:</strong>
+        <%= @reservation.start_date %>
+      </p>
+      <p>
+        <strong>Owner:</strong>
+        <%= @reservation.camera.user.first_name %>
+      </p>
 
-<p>
-  <strong>End Date:</strong>
-  <%= @reservation.end_date %>
-</p>
+      <p>
+        <strong>End Date:</strong>
+        <%= @reservation.end_date %>
+      </p>
 
-<p>
-  <strong>Total Price:</strong>
-  <%= @reservation.total_price %>
-</p>
+      <p>
+        <strong>Total Price:</strong>
+        <%= @reservation.total_price %>
+      </p>
 
-<%= link_to 'Back to Cameras', cameras_path %>
+      <%= link_to 'Back to Cameras', cameras_path %>
+    </div>
+  </div>
+</div>
